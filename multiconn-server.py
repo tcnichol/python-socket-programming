@@ -10,7 +10,7 @@ load_dotenv()
 SD_GPU_HOST = os.getenv('SD_GPU_HOST')
 DEV_MARGINDX_HOST = os.getenv('DEV_MARGINDX_HOST')
 
-RECEIVER_HOST = DEV_MARGINDX_HOST
+RECEIVER_HOST = '0.0.0.0'
 
 host, port = RECEIVER_HOST, int(os.getenv('receiver_port'))
 
