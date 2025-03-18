@@ -7,6 +7,11 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+SD_GPU_HOST = os.getenv('SD_GPU_HOST')
+DEV_MARGINDX_HOST = os.getenv('DEV_MARGINDX_HOST')
+
+SENDER_HOST = DEV_MARGINDX_HOST
+
 sel = selectors.DefaultSelector()
 
 messages = [b'Message 1 from client.', b'Message 2 from client.']
@@ -82,7 +87,7 @@ def service_connection(key, mask):
 #     sys.exit(1)
 
 
-start_connections(os.getenv('sender_host'), int(os.getenv('sender_port')), int(os.getenv('num_connections')))
+start_connections(SENDER_HOST, int(os.getenv('sender_port')), int(os.getenv('num_connections')))
 
 try:
     while True:
