@@ -2,6 +2,8 @@ import socket
 import selectors
 import types
 import sys
+import os
+from dotenv import load_dotenv
 
 sel = selectors.DefaultSelector()
 
@@ -71,13 +73,14 @@ def service_connection(key, mask):
             # empties 'data.outb'
             data.outb = data.outb[sent:]
 
+# no longer using sys argv - now using dotenv
 
-if len(sys.argv) != 4:
-    print("usage:", sys.argv[0], "<host> <port> <num_connections>")
-    sys.exit(1)
+# if len(sys.argv) != 4:
+#     print("usage:", sys.argv[0], "<host> <port> <num_connections>")
+#     sys.exit(1)
 
 
-start_connections(sys.argv[1], int(sys.argv[2]), int(sys.argv[3]))
+start_connections(os.getenv('sender_host'), int(os.getenv('sender_port')), int(os.getenv('num_connections')))
 
 try:
     while True:
