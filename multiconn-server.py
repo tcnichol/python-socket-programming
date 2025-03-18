@@ -7,7 +7,9 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-host, port = os.getenv('receiver_host'), int(os.getenv('num_connections'))
+host, port = os.getenv('receiver_host'), int(os.getenv('receiver_port'))
+
+print(f"The host and port are {host} and {port}")
 
 sel = selectors.DefaultSelector()
 

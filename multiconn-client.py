@@ -5,6 +5,8 @@ import sys
 import os
 from dotenv import load_dotenv
 
+load_dotenv()
+
 sel = selectors.DefaultSelector()
 
 messages = [b'Message 1 from client.', b'Message 2 from client.']
